@@ -46,6 +46,7 @@
 		C6E971D92B8C8A7300D08EE8 /* StarshipViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarshipViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E971DD2B8C8A7300D08EE8 /* StarshipViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewerUITests.swift; sourceTree = "<group>"; };
 		C6E971DF2B8C8A7300D08EE8 /* StarshipViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C6E971EC2B8C8AEA00D08EE8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 		C6E971B42B8C8A7100D08EE8 = {
 			isa = PBXGroup;
 			children = (
+				C6E971EC2B8C8AEA00D08EE8 /* Readme.md */,
 				C6E971BF2B8C8A7100D08EE8 /* StarshipViewer */,
 				C6E971D22B8C8A7300D08EE8 /* StarshipViewerTests */,
 				C6E971DC2B8C8A7300D08EE8 /* StarshipViewerUITests */,
