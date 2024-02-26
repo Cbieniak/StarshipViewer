@@ -25,7 +25,7 @@ struct StarshipViewerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HostScreen()
         }
         .modelContainer(sharedModelContainer)
     }
