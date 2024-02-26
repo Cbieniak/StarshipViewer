@@ -15,6 +15,9 @@
 		C6E971D42B8C8A7300D08EE8 /* StarshipViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E971D32B8C8A7300D08EE8 /* StarshipViewerTests.swift */; };
 		C6E971DE2B8C8A7300D08EE8 /* StarshipViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E971DD2B8C8A7300D08EE8 /* StarshipViewerUITests.swift */; };
 		C6E971E02B8C8A7300D08EE8 /* StarshipViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E971DF2B8C8A7300D08EE8 /* StarshipViewerUITestsLaunchTests.swift */; };
+		C6E971EF2B8C926700D08EE8 /* StarshipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E971EE2B8C926700D08EE8 /* StarshipListView.swift */; };
+		C6E971F22B8C93B800D08EE8 /* ExampleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = C6E971F12B8C93B800D08EE8 /* ExampleResponse.json */; };
+		C6E971F42B8C93D900D08EE8 /* ParentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E971F32B8C93D900D08EE8 /* ParentResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		C6E971DD2B8C8A7300D08EE8 /* StarshipViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewerUITests.swift; sourceTree = "<group>"; };
 		C6E971DF2B8C8A7300D08EE8 /* StarshipViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C6E971EC2B8C8AEA00D08EE8 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		C6E971EE2B8C926700D08EE8 /* StarshipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipListView.swift; sourceTree = "<group>"; };
+		C6E971F12B8C93B800D08EE8 /* ExampleResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleResponse.json; sourceTree = "<group>"; };
+		C6E971F32B8C93D900D08EE8 /* ParentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		C6E971B42B8C8A7100D08EE8 = {
 			isa = PBXGroup;
 			children = (
+				C6E971F12B8C93B800D08EE8 /* ExampleResponse.json */,
 				C6E971EC2B8C8AEA00D08EE8 /* Readme.md */,
 				C6E971BF2B8C8A7100D08EE8 /* StarshipViewer */,
 				C6E971D22B8C8A7300D08EE8 /* StarshipViewerTests */,
@@ -98,6 +105,8 @@
 		C6E971BF2B8C8A7100D08EE8 /* StarshipViewer */ = {
 			isa = PBXGroup;
 			children = (
+				C6E971F02B8C92B300D08EE8 /* Models */,
+				C6E971ED2B8C924A00D08EE8 /* Screens */,
 				C6E971C02B8C8A7100D08EE8 /* StarshipViewerApp.swift */,
 				C6E971C22B8C8A7100D08EE8 /* ContentView.swift */,
 				C6E971C42B8C8A7100D08EE8 /* Item.swift */,
@@ -130,6 +139,22 @@
 				C6E971DF2B8C8A7300D08EE8 /* StarshipViewerUITestsLaunchTests.swift */,
 			);
 			path = StarshipViewerUITests;
+			sourceTree = "<group>";
+		};
+		C6E971ED2B8C924A00D08EE8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C6E971EE2B8C926700D08EE8 /* StarshipListView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C6E971F02B8C92B300D08EE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C6E971F32B8C93D900D08EE8 /* ParentResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E971CA2B8C8A7300D08EE8 /* Preview Assets.xcassets in Resources */,
+				C6E971F22B8C93B800D08EE8 /* ExampleResponse.json in Resources */,
 				C6E971C72B8C8A7300D08EE8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +290,8 @@
 			files = (
 				C6E971C32B8C8A7100D08EE8 /* ContentView.swift in Sources */,
 				C6E971C52B8C8A7100D08EE8 /* Item.swift in Sources */,
+				C6E971EF2B8C926700D08EE8 /* StarshipListView.swift in Sources */,
+				C6E971F42B8C93D900D08EE8 /* ParentResponse.swift in Sources */,
 				C6E971C12B8C8A7100D08EE8 /* StarshipViewerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
