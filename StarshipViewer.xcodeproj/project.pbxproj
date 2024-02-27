@@ -28,6 +28,9 @@
 		C6E9720B2B8D62DC00D08EE8 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9720A2B8D62DC00D08EE8 /* MockApiService.swift */; };
 		C6E9720D2B8D639E00D08EE8 /* StarshipApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9720C2B8D639E00D08EE8 /* StarshipApiRepository.swift */; };
 		C6E9720F2B8D648E00D08EE8 /* MockStarshipRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9720E2B8D648E00D08EE8 /* MockStarshipRepository.swift */; };
+		C6E972142B8D76CE00D08EE8 /* StarshipDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972132B8D76CE00D08EE8 /* StarshipDetailScreen.swift */; };
+		C6E972162B8D76F100D08EE8 /* StarshipDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972152B8D76F100D08EE8 /* StarshipDetailViewModel.swift */; };
+		C6E972192B8D7F2E00D08EE8 /* FavouriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		C6E9720A2B8D62DC00D08EE8 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		C6E9720C2B8D639E00D08EE8 /* StarshipApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipApiRepository.swift; sourceTree = "<group>"; };
 		C6E9720E2B8D648E00D08EE8 /* MockStarshipRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStarshipRepository.swift; sourceTree = "<group>"; };
+		C6E972132B8D76CE00D08EE8 /* StarshipDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailScreen.swift; sourceTree = "<group>"; };
+		C6E972152B8D76F100D08EE8 /* StarshipDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailViewModel.swift; sourceTree = "<group>"; };
+		C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 		C6E971ED2B8C924A00D08EE8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C6E972122B8D76BE00D08EE8 /* StarshipDetail */,
 				C6E972072B8D46FA00D08EE8 /* StarshipList */,
 				C6E971FB2B8C970400D08EE8 /* HostScreen.swift */,
 			);
@@ -182,6 +189,7 @@
 		C6E971F52B8C95E000D08EE8 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				C6E972172B8D7F1100D08EE8 /* FavouriteRepository */,
 				C6E972002B8C9D9A00D08EE8 /* Requesting */,
 				C6E971FD2B8C9C7300D08EE8 /* StarshipRepository */,
 				C6E971F62B8C95E700D08EE8 /* Navigator */,
@@ -225,6 +233,23 @@
 				C6E972082B8D470900D08EE8 /* StarshipViewModel.swift */,
 			);
 			path = StarshipList;
+			sourceTree = "<group>";
+		};
+		C6E972122B8D76BE00D08EE8 /* StarshipDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C6E972132B8D76CE00D08EE8 /* StarshipDetailScreen.swift */,
+				C6E972152B8D76F100D08EE8 /* StarshipDetailViewModel.swift */,
+			);
+			path = StarshipDetail;
+			sourceTree = "<group>";
+		};
+		C6E972172B8D7F1100D08EE8 /* FavouriteRepository */ = {
+			isa = PBXGroup;
+			children = (
+				C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */,
+			);
+			path = FavouriteRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,9 +389,12 @@
 				C6E9720D2B8D639E00D08EE8 /* StarshipApiRepository.swift in Sources */,
 				C6E972042B8C9E8100D08EE8 /* Requesting.swift in Sources */,
 				C6E972022B8C9E7000D08EE8 /* ApiService.swift in Sources */,
+				C6E972142B8D76CE00D08EE8 /* StarshipDetailScreen.swift in Sources */,
+				C6E972162B8D76F100D08EE8 /* StarshipDetailViewModel.swift in Sources */,
 				C6E972092B8D470900D08EE8 /* StarshipViewModel.swift in Sources */,
 				C6E971C32B8C8A7100D08EE8 /* ContentView.swift in Sources */,
 				C6E971C52B8C8A7100D08EE8 /* Item.swift in Sources */,
+				C6E972192B8D7F2E00D08EE8 /* FavouriteRepository.swift in Sources */,
 				C6E971EF2B8C926700D08EE8 /* StarshipListScreen.swift in Sources */,
 				C6E971FF2B8C9CCC00D08EE8 /* StarshipRepository.swift in Sources */,
 				C6E9720B2B8D62DC00D08EE8 /* MockApiService.swift in Sources */,

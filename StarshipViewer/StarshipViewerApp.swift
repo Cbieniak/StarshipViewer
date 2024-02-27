@@ -10,23 +10,37 @@ import SwiftData
 
 @main
 struct StarshipViewerApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
-    var body: some Scene {
-        WindowGroup {
-            HostScreen()
-        }
-        .modelContainer(sharedModelContainer)
+  
+  var requesting: Requesting
+  
+  var starshipRepository: StarshipRepository
+  
+  var favouritesRepository = FavouriteRepository()
+  
+  var navigator = Navigator()
+  
+  init() {
+    requesting = ApiService()
+    starshipRepository = StarshipApiRepository(api: requesting)
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      HostScreen()
     }
+    .environment(\.starshipRepository, starshipRepository)
+    .environment(navigator)
+    .environment(favouritesRepository)
+  }
+}
+
+extension EnvironmentValues {
+  var starshipRepository: StarshipRepository {
+    get { self[StarshipRepositoryKey.self] }
+    set { self[StarshipRepositoryKey.self] = newValue }
+  }
+}
+
+private struct StarshipRepositoryKey: EnvironmentKey {
+  static let defaultValue: StarshipRepository = MockStarshipRepository(mockState: .loading)
 }

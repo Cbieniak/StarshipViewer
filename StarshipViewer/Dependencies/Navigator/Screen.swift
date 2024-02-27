@@ -9,5 +9,5 @@ import Foundation
 
 enum Screen: Hashable {
   case starships
-  case starship(id: String)
+  case starship(starship: Starship)
 }

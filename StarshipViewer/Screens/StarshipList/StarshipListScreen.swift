@@ -20,7 +20,7 @@ struct StarshipListScreen: View {
         case .none:
           EmptyView()
         case .error(let error):
-          ContentUnavailableView(error.localizedDescription, image: "star.full")
+          ContentUnavailableView(error.localizedDescription, systemImage: "exclamationmark.triangle")
         case .loading:
           ProgressView()
         case .loaded(let starships):
@@ -28,7 +28,7 @@ struct StarshipListScreen: View {
             ForEach(starships) { item in
               Text(item.name)
                 .onTapGesture {
-                  navigator.navigateToScreen(.starship(id: item.id))
+                  navigator.navigateToScreen(.starship(starship: item))
                 }
             }
           }

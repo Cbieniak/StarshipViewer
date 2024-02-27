@@ -9,15 +9,18 @@ import SwiftUI
 
 struct HostScreen: View {
   @State private var navigator = Navigator()
+  @Environment(\.starshipRepository) private var starshipRepository
+  @Environment(FavouriteRepository.self) private var favouritesRepository
+  
   var body: some View {
     NavigationStack(path: $navigator.path) {
-      StarshipListScreen(viewModel: .init(repository: StarshipApiRepository(api: MockApiService())))
+      StarshipListScreen(viewModel: .init(repository: starshipRepository))
         .navigationDestination(for: Screen.self) { destination in
           switch destination {
             case .starships:
               EmptyView()
-            case .starship(id: _):
-              EmptyView()
+            case .starship(let starship):
+              StarshipDetailScreen(viewModel: .init(starship: starship))
           }
         }
     }
@@ -28,4 +31,6 @@ struct HostScreen: View {
 #Preview {
   HostScreen()
     .environment(Navigator())
+    .environment(\.starshipRepository, MockStarshipRepository(mockState: .loading))
+    .environment(FavouriteRepository())
 }

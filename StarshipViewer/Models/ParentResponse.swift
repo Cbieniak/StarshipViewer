@@ -12,7 +12,7 @@ struct ParentResponse: Codable {
 }
 
 // Note: Don't map more attributes than we intend to show to retain flexibility in the api.
-struct Starship: Codable, Identifiable {
+struct Starship: Codable, Hashable, Identifiable {
   
   // No Id from the api. Use this in the mean time.
   var id: String {
