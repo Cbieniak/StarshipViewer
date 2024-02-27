@@ -11,11 +11,11 @@ struct HostScreen: View {
   @State private var navigator = Navigator()
   var body: some View {
     NavigationStack(path: $navigator.path) {
-      StarshipListScreen()
+      StarshipListScreen(viewModel: .init(repository: StarshipApiRepository(api: MockApiService())))
         .navigationDestination(for: Screen.self) { destination in
           switch destination {
             case .starships:
-              StarshipListScreen()
+              EmptyView()
             case .starship(id: _):
               EmptyView()
           }

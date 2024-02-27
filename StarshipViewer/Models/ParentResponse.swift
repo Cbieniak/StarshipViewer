@@ -12,8 +12,22 @@ struct ParentResponse: Codable {
 }
 
 // Note: Don't map more attributes than we intend to show to retain flexibility in the api.
-struct Starship: Codable {
+struct Starship: Codable, Identifiable {
+  
+  // No Id from the api. Use this in the mean time.
+  var id: String {
+    name
+  }
+  
   var name: String
   var model: String
   var manufacturer: String
+  
+  var url: String
+}
+
+extension Starship {
+  var unwrappedUrl: URL? {
+    URL(string: url)
+  }
 }

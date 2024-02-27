@@ -36,5 +36,8 @@ Navigator
 
 Accessibility action
 
+Viewmodels
+
+No addition details on the detail request so just have the initial network request.
 
 
