@@ -13,7 +13,7 @@ struct HostScreen: View {
   @Environment(FavouriteRepository.self) private var favouritesRepository
   
   var body: some View {
-    NavigationStack(path: $navigator.path) {
+    NavigationSplitView {
       StarshipListScreen(viewModel: .init(repository: starshipRepository, favouriteRepository: favouritesRepository))
         .navigationDestination(for: Screen.self) { destination in
           switch destination {
@@ -21,6 +21,8 @@ struct HostScreen: View {
               StarshipDetailScreen(viewModel: .init(starship: starship, favouriteRepository: favouritesRepository))
           }
         }
+    } detail: {
+      Text("Select an ship")
     }
   }
 }
