@@ -7,27 +7,8 @@
 
 import Foundation
 
+// Only map whats required for the starship
+// In the future will be required for pagination
 struct ParentResponse: Codable {
   var results: [Starship]
-}
-
-// Note: Don't map more attributes than we intend to show to retain flexibility in the api.
-struct Starship: Codable, Hashable, Identifiable {
-  
-  // No Id from the api. Use this in the mean time.
-  var id: String {
-    name
-  }
-  
-  var name: String
-  var model: String
-  var manufacturer: String
-  
-  var url: String
-}
-
-extension Starship {
-  var unwrappedUrl: URL? {
-    URL(string: url)
-  }
 }

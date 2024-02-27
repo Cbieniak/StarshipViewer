@@ -34,6 +34,6 @@ struct StarshipDetailScreen: View {
 
 #Preview {
   NavigationStack {
-    StarshipDetailScreen(viewModel: .init(starship: .init(name: "name", model: "Model", manufacturer: "Manu", url: "url"), favouriteRepository: .init(store: InMemoryStore())))
+    StarshipDetailScreen(viewModel: .init(starship: .mock(), favouriteRepository: .init(store: InMemoryStore())))
   }
 }

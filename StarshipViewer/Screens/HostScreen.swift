@@ -17,20 +17,16 @@ struct HostScreen: View {
       StarshipListScreen(viewModel: .init(repository: starshipRepository, favouriteRepository: favouritesRepository))
         .navigationDestination(for: Screen.self) { destination in
           switch destination {
-            case .starships:
-              EmptyView()
             case .starship(let starship):
               StarshipDetailScreen(viewModel: .init(starship: starship, favouriteRepository: favouritesRepository))
           }
         }
     }
-    .environment(navigator)
   }
 }
 
 #Preview {
   HostScreen()
-    .environment(Navigator())
-    .environment(\.starshipRepository, MockStarshipRepository(mockState: .loading))
+    .environment(\.starshipRepository, MockStarshipRepository(mockState: .loaded([.mock(name: "a"), .mock(name: "b")])))
     .environment(FavouriteRepository(store: InMemoryStore()))
 }

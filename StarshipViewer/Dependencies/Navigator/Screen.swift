@@ -7,7 +7,7 @@
 
 import Foundation
 
+// Assume more screens to come
 enum Screen: Hashable {
-  case starships
   case starship(starship: Starship)
 }

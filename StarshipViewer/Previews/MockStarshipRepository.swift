@@ -20,4 +20,9 @@ class MockStarshipRepository: StarshipRepository {
   }
   
   func refresh() {}
+  
+  enum Error: LocalizedError {
+    case placeholder
+  }
 }
+

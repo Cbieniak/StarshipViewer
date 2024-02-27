@@ -15,18 +15,3 @@ protocol ResponseTransformer {
   associatedtype Output
   func transform(_ response: Result<Data, Error>) throws -> Output
 }
-
-// Note: In the future this would be generic to facilitate any kind of paged response
-struct PagedResponseTransformer: ResponseTransformer {
-  
-  func transform(_ response: Result<Data, Error>) throws -> [Starship] {
-    switch response {
-      case .success(let data):
-        let result = try JSONDecoder().decode(ParentResponse.self, from: data)
-        return result.results
-      case .failure(let error):
-        throw error
-    }
-    
-  }
-}

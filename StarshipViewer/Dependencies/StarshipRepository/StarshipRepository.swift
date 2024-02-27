@@ -8,11 +8,22 @@
 import Foundation
 import Observation
 
-enum StarshipState {
+enum StarshipState: Equatable {
   case none
   case error(Error)
   case loading
   case loaded([Starship])
+  
+  static func == (lhs: StarshipState, rhs: StarshipState) -> Bool {
+    switch (lhs, rhs) {
+      case (.none, .none), (.error, .error), (.loading, .loading):
+        return true
+      case let (.loaded(lhsArray), .loaded(rhsArray)):
+        return lhsArray == rhsArray
+      default:
+        return false
+    }
+  }
 }
 
 protocol StarshipRepository {

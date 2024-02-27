@@ -21,7 +21,9 @@ import Observation
   var attributes: [Attributes] {
     [
       Attributes(title: "Model", value: starship.model),
-      Attributes(title: "Manufacturer", value: starship.manufacturer)
+      Attributes(title: "Manufacturer", value: starship.manufacturer),
+      Attributes(title: "Starship Class", value: starship.starshipClass),
+      Attributes(title: "Hyperdrive Rating", value: starship.hyperdriveRating)
     ]
   }
   
