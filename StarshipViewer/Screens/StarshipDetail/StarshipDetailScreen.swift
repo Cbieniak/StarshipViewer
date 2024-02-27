@@ -23,11 +23,16 @@ struct StarshipDetailScreen: View {
       }
     }
     .navigationTitle(viewModel.title)
+    .toolbar {
+      Button("", systemImage: viewModel.favouriteBarButtonImage()) {
+        viewModel.favouriteTapped()
+      }
+    }
   }
 }
 
 #Preview {
   NavigationStack {
-    StarshipDetailScreen(viewModel: .init(starship: .init(name: "name", model: "Model", manufacturer: "Manu", url: "url")))
+    StarshipDetailScreen(viewModel: .init(starship: .init(name: "name", model: "Model", manufacturer: "Manu", url: "url"), favouriteRepository: .init()))
   }
 }

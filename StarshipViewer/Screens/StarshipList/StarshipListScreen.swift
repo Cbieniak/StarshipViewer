@@ -26,10 +26,16 @@ struct StarshipListScreen: View {
         case .loaded(let starships):
           List {
             ForEach(starships) { item in
-              Text(item.name)
-                .onTapGesture {
-                  navigator.navigateToScreen(.starship(starship: item))
+              HStack {
+                Button("", systemImage: viewModel.isFavourite(item: item) ? "star.fill" : "star") {
+                  viewModel.toggleFavourite(item: item)
                 }
+                Text(item.name)
+                  .frame(maxWidth: .infinity)
+                  .onTapGesture {
+                    navigator.navigateToScreen(.starship(starship: item))
+                  }
+              }
             }
           }
       }
@@ -40,16 +46,18 @@ struct StarshipListScreen: View {
 }
 
 #Preview("Loading") {
-    StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loading)))
-      .environment(Navigator())
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loading), favouriteRepository: .init()))
+    .environment(Navigator())
+    .environment(\.starshipRepository, MockStarshipRepository(mockState: .loading))
+    .environment(FavouriteRepository())
 }
 
 #Preview("Error") {
-  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .error(MockApiService.Error.networkFailure))))
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .error(MockApiService.Error.networkFailure)), favouriteRepository: .init()))
     .environment(Navigator())
 }
 
 #Preview("Content") {
-  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loaded([.init(name: "Ship", model: "Model", manufacturer: "Manufacturer", url: "www.nextship.com")]) )))
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loaded([.init(name: "Ship", model: "Model", manufacturer: "Manufacturer", url: "www.nextship.com")])), favouriteRepository: .init()))
     .environment(Navigator())
 }

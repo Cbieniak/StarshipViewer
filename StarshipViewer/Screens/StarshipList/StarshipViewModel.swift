@@ -19,17 +19,20 @@ import Observation
   
   var starshipState: StarshipState = .none
   
-  private var repository: StarshipRepository
+  private var starshipRepository: StarshipRepository
+  
+  private var favouriteRepository: FavouriteRepository
   
   private var longLivedRepositoryTask: Task<Void, Never>?
   
-  init(repository: StarshipRepository) {
-    self.repository = repository
+  init(repository: StarshipRepository, favouriteRepository: FavouriteRepository) {
+    self.starshipRepository = repository
+    self.favouriteRepository = favouriteRepository
   }
   
   func appeared() {
     longLivedRepositoryTask = Task {
-      for await val in repository.stateStream {
+      for await val in starshipRepository.stateStream {
         switch val {
           case .none:
             self.starshipState = .none
@@ -43,7 +46,15 @@ import Observation
       }
     }
 
-    repository.refresh()
+    starshipRepository.refresh()
+  }
+  
+  func toggleFavourite(item: Starship) {
+    favouriteRepository.toggleFavourite(item.id)
+  }
+  
+  func isFavourite(item: Starship) -> Bool {
+    favouriteRepository.isFavourite(item.id)
   }
   
 }

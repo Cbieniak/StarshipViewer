@@ -11,8 +11,11 @@ import Observation
 @Observable class StarshipDetailViewModel {
   var starship: Starship
   
-  init(starship: Starship) {
+  var favouriteRepository: FavouriteRepository
+  
+  init(starship: Starship, favouriteRepository: FavouriteRepository) {
     self.starship = starship
+    self.favouriteRepository = favouriteRepository
   }
   
   var attributes: [Attributes] {
@@ -24,6 +27,18 @@ import Observation
   
   var title: String {
     starship.name
+  }
+  
+  func favouriteTapped() {
+    favouriteRepository.toggleFavourite(starship.id)
+  }
+  
+  func favouriteBarButtonImage() -> String {
+    if favouriteRepository.isFavourite(starship.id) {
+      "star.fill"
+    } else {
+      "star"
+    }
   }
 }
 

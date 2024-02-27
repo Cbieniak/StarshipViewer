@@ -23,6 +23,15 @@ import Observation
   func isFavourite(_ id: String) -> Bool {
     favourites.contains(id)
   }
+  
+  func toggleFavourite(_ id: String) {
+    if isFavourite(id) {
+      unfavourite(id)
+    } else {
+      favourite(id)
+    }
+  }
+  
 }
 
 // TODO: Store

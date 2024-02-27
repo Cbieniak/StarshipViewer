@@ -14,13 +14,13 @@ struct HostScreen: View {
   
   var body: some View {
     NavigationStack(path: $navigator.path) {
-      StarshipListScreen(viewModel: .init(repository: starshipRepository))
+      StarshipListScreen(viewModel: .init(repository: starshipRepository, favouriteRepository: favouritesRepository))
         .navigationDestination(for: Screen.self) { destination in
           switch destination {
             case .starships:
               EmptyView()
             case .starship(let starship):
-              StarshipDetailScreen(viewModel: .init(starship: starship))
+              StarshipDetailScreen(viewModel: .init(starship: starship, favouriteRepository: favouritesRepository))
           }
         }
     }
