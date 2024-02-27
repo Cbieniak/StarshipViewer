@@ -17,7 +17,7 @@ enum StarshipState {
 
 protocol StarshipRepository {
   
-  var stateStream: AsyncStream<StarshipState> { get }
+  var state: StarshipState { get }
   
   func refresh()
 }

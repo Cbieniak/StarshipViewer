@@ -10,20 +10,13 @@ import Observation
 
 @Observable class StarshipViewModel {
   
-  enum StarshipState {
-    case none
-    case error(Error)
-    case loading
-    case loaded([Starship])
+  var starshipState: StarshipState {
+    starshipRepository.state
   }
-  
-  var starshipState: StarshipState = .none
   
   private var starshipRepository: StarshipRepository
   
   private var favouriteRepository: FavouriteRepository
-  
-  private var longLivedRepositoryTask: Task<Void, Never>?
   
   init(repository: StarshipRepository, favouriteRepository: FavouriteRepository) {
     self.starshipRepository = repository
@@ -31,21 +24,6 @@ import Observation
   }
   
   func appeared() {
-    longLivedRepositoryTask = Task {
-      for await val in starshipRepository.stateStream {
-        switch val {
-          case .none:
-            self.starshipState = .none
-          case .error(let error):
-            self.starshipState = .error(error)
-          case .loading:
-            self.starshipState = .loading
-          case .loaded(let array):
-            self.starshipState = .loaded(array)
-        }
-      }
-    }
-
     starshipRepository.refresh()
   }
   

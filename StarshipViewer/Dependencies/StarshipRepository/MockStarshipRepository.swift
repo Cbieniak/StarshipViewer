@@ -9,20 +9,15 @@ import Foundation
 
 class MockStarshipRepository: StarshipRepository {
   
-  var stateStream: AsyncStream<StarshipState>
-  
-  var mockState: StarshipState = .none
-  
-  private var continuation: AsyncStream<StarshipState>.Continuation
+  private(set) var state: StarshipState = .none
   
   init(mockState: StarshipState) {
-    self.mockState = mockState
-    let (stream, continuation) = AsyncStream<StarshipState>.makeStream()
-    self.stateStream = stream
-    self.continuation = continuation
+    self.state = mockState
   }
   
-  func refresh() {
-    continuation.yield(mockState)
+  func setState(state: StarshipState) {
+    self.state = state
   }
+  
+  func refresh() {}
 }

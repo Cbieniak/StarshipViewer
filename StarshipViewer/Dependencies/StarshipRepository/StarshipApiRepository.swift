@@ -6,30 +6,26 @@
 //
 
 import Foundation
+import Observation
 
-class StarshipApiRepository: StarshipRepository {
+@Observable class StarshipApiRepository: StarshipRepository {
   
-  var stateStream: AsyncStream<StarshipState>
+  var state: StarshipState = .none
   
-  private var continuation: AsyncStream<StarshipState>.Continuation
-  
-  private var api: Requesting
+  var api: Requesting
   
   init(api: Requesting) {
     self.api = api
-    let (stream, continuation) = AsyncStream<StarshipState>.makeStream()
-    self.stateStream = stream
-    self.continuation = continuation
   }
 
   func refresh() {
-    continuation.yield(.loading)
+    state = .loading
     Task {
       do {
         let result = try await api.request(URLRequest(url: URL(string: "https://swapi.dev/api/starships/")!), transformer: PagedResponseTransformer())
-        continuation.yield(.loaded(result))
+        state = .loaded(result)
       } catch {
-        continuation.yield(.error(error))
+        state = .error(error)
       }
     }
   }
