@@ -9,19 +9,23 @@ import Foundation
 import Observation
 
 @Observable class FavouriteRepository {
+    
+  var store: Store
   
-  var favourites = Set<String>()
+  init(store: Store) {
+    self.store = store
+  }
   
   func favourite(_ id: String) {
-    favourites.insert(id)
+    store.insert(id)
   }
   
   func unfavourite(_ id: String) {
-    favourites.remove(id)
+    store.delete(id)
   }
   
   func isFavourite(_ id: String) -> Bool {
-    favourites.contains(id)
+    store.contains(id)
   }
   
   func toggleFavourite(_ id: String) {
@@ -33,7 +37,3 @@ import Observation
   }
   
 }
-
-// TODO: Store
-
-

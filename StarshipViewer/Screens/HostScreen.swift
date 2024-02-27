@@ -32,5 +32,5 @@ struct HostScreen: View {
   HostScreen()
     .environment(Navigator())
     .environment(\.starshipRepository, MockStarshipRepository(mockState: .loading))
-    .environment(FavouriteRepository())
+    .environment(FavouriteRepository(store: InMemoryStore()))
 }

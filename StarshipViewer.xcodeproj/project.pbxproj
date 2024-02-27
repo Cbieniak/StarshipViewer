@@ -31,6 +31,8 @@
 		C6E972142B8D76CE00D08EE8 /* StarshipDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972132B8D76CE00D08EE8 /* StarshipDetailScreen.swift */; };
 		C6E972162B8D76F100D08EE8 /* StarshipDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972152B8D76F100D08EE8 /* StarshipDetailViewModel.swift */; };
 		C6E972192B8D7F2E00D08EE8 /* FavouriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */; };
+		C6E9721C2B8D983B00D08EE8 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9721B2B8D983B00D08EE8 /* Store.swift */; };
+		C6E9721E2B8D984200D08EE8 /* InMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9721D2B8D984200D08EE8 /* InMemoryStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		C6E972132B8D76CE00D08EE8 /* StarshipDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailScreen.swift; sourceTree = "<group>"; };
 		C6E972152B8D76F100D08EE8 /* StarshipDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipDetailViewModel.swift; sourceTree = "<group>"; };
 		C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRepository.swift; sourceTree = "<group>"; };
+		C6E9721B2B8D983B00D08EE8 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		C6E9721D2B8D984200D08EE8 /* InMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 		C6E971F52B8C95E000D08EE8 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				C6E9721A2B8D983300D08EE8 /* Store */,
 				C6E972172B8D7F1100D08EE8 /* FavouriteRepository */,
 				C6E972002B8C9D9A00D08EE8 /* Requesting */,
 				C6E971FD2B8C9C7300D08EE8 /* StarshipRepository */,
@@ -250,6 +255,15 @@
 				C6E972182B8D7F2E00D08EE8 /* FavouriteRepository.swift */,
 			);
 			path = FavouriteRepository;
+			sourceTree = "<group>";
+		};
+		C6E9721A2B8D983300D08EE8 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C6E9721B2B8D983B00D08EE8 /* Store.swift */,
+				C6E9721D2B8D984200D08EE8 /* InMemoryStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +404,7 @@
 				C6E972042B8C9E8100D08EE8 /* Requesting.swift in Sources */,
 				C6E972022B8C9E7000D08EE8 /* ApiService.swift in Sources */,
 				C6E972142B8D76CE00D08EE8 /* StarshipDetailScreen.swift in Sources */,
+				C6E9721E2B8D984200D08EE8 /* InMemoryStore.swift in Sources */,
 				C6E972162B8D76F100D08EE8 /* StarshipDetailViewModel.swift in Sources */,
 				C6E972092B8D470900D08EE8 /* StarshipViewModel.swift in Sources */,
 				C6E971C32B8C8A7100D08EE8 /* ContentView.swift in Sources */,
@@ -397,6 +412,7 @@
 				C6E972192B8D7F2E00D08EE8 /* FavouriteRepository.swift in Sources */,
 				C6E971EF2B8C926700D08EE8 /* StarshipListScreen.swift in Sources */,
 				C6E971FF2B8C9CCC00D08EE8 /* StarshipRepository.swift in Sources */,
+				C6E9721C2B8D983B00D08EE8 /* Store.swift in Sources */,
 				C6E9720B2B8D62DC00D08EE8 /* MockApiService.swift in Sources */,
 				C6E971F42B8C93D900D08EE8 /* ParentResponse.swift in Sources */,
 				C6E971C12B8C8A7100D08EE8 /* StarshipViewerApp.swift in Sources */,

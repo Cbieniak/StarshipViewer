@@ -15,7 +15,7 @@ struct StarshipViewerApp: App {
   
   var starshipRepository: StarshipRepository
   
-  var favouritesRepository = FavouriteRepository()
+  var favouritesRepository = FavouriteRepository(store: InMemoryStore())
   
   var navigator = Navigator()
   

@@ -49,12 +49,15 @@ import Observation
     starshipRepository.refresh()
   }
   
-  func toggleFavourite(item: Starship) {
+  func favouriteTapped(item: Starship) {
     favouriteRepository.toggleFavourite(item.id)
   }
   
-  func isFavourite(item: Starship) -> Bool {
-    favouriteRepository.isFavourite(item.id)
+  func favouriteButtonImage(item: Starship) -> String {
+    if favouriteRepository.isFavourite(item.id) {
+      "star.fill"
+    } else {
+      "star"
+    }
   }
-  
 }

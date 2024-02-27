@@ -26,10 +26,12 @@ struct StarshipListScreen: View {
         case .loaded(let starships):
           List {
             ForEach(starships) { item in
+              // Extract to ListViewItem
               HStack {
-                Button("", systemImage: viewModel.isFavourite(item: item) ? "star.fill" : "star") {
-                  viewModel.toggleFavourite(item: item)
+                Button("", systemImage: viewModel.favouriteButtonImage(item: item)) {
+                  viewModel.favouriteTapped(item: item)
                 }
+                .animation(.default, value: viewModel.favouriteButtonImage(item: item))
                 Text(item.name)
                   .frame(maxWidth: .infinity)
                   .onTapGesture {
@@ -46,18 +48,16 @@ struct StarshipListScreen: View {
 }
 
 #Preview("Loading") {
-  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loading), favouriteRepository: .init()))
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loading), favouriteRepository: .init(store: InMemoryStore())))
     .environment(Navigator())
-    .environment(\.starshipRepository, MockStarshipRepository(mockState: .loading))
-    .environment(FavouriteRepository())
 }
 
 #Preview("Error") {
-  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .error(MockApiService.Error.networkFailure)), favouriteRepository: .init()))
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .error(MockApiService.Error.networkFailure)), favouriteRepository: .init(store: InMemoryStore())))
     .environment(Navigator())
 }
 
 #Preview("Content") {
-  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loaded([.init(name: "Ship", model: "Model", manufacturer: "Manufacturer", url: "www.nextship.com")])), favouriteRepository: .init()))
+  StarshipListScreen(viewModel: .init(repository: MockStarshipRepository(mockState: .loaded([.init(name: "Ship", model: "Model", manufacturer: "Manufacturer", url: "www.nextship.com")])), favouriteRepository: .init(store: InMemoryStore())))
     .environment(Navigator())
 }

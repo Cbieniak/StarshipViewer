@@ -27,12 +27,13 @@ struct StarshipDetailScreen: View {
       Button("", systemImage: viewModel.favouriteBarButtonImage()) {
         viewModel.favouriteTapped()
       }
+      .animation(.default, value: viewModel.favouriteBarButtonImage())
     }
   }
 }
 
 #Preview {
   NavigationStack {
-    StarshipDetailScreen(viewModel: .init(starship: .init(name: "name", model: "Model", manufacturer: "Manu", url: "url"), favouriteRepository: .init()))
+    StarshipDetailScreen(viewModel: .init(starship: .init(name: "name", model: "Model", manufacturer: "Manu", url: "url"), favouriteRepository: .init(store: InMemoryStore())))
   }
 }
